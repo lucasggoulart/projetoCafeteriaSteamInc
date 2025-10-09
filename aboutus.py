@@ -11,42 +11,29 @@ def aboutus_screen():
     janela = tk.Tk()
     janela.title("Steam Inc - Sobre Nós")
     janela.geometry("1000x600")
-    janela.configure(bg="#ffffff")
+    janela.configure(bg="#5d3800")
 
     
-    def arredondar_bordas(imagem, raio):
-        largura, altura = imagem.size
-        mask = Image.new("L", (largura, altura), 0)
-        draw = ImageDraw.Draw(mask)
-        draw.rounded_rectangle((0, 0, largura, altura), raio, fill=255)
-        imagem_rounded = imagem.copy()
-        imagem_rounded.putalpha(mask)
-        return imagem_rounded
-
-    imagem_fundo = Image.open("img/background.png").resize((1000, 600), Image.LANCZOS).convert("RGBA")
-    imagem_fundo = arredondar_bordas(imagem_fundo, 30)
-    imagem_fundo_tk = ImageTk.PhotoImage(imagem_fundo)
-
-    frame_header = tk.Frame(janela, bg="#ffffff")
-    frame_header.pack(side="top", padx=20, pady=20)
+    frame_header = tk.Frame(janela, bg="#905700")
+    frame_header.pack(side="top", fill="x", padx=20, pady=20)
 
     frame_principal = tk.Frame(janela, bg="#ffffff")
     frame_principal.pack(fill="both", expand=True, padx=20, pady=20)
 
-    fundo_label = tk.Label(frame_principal, image=imagem_fundo_tk, bg="#ffebdb")
+    fundo_label = tk.Label(frame_principal, bg="#ffebdb")
     fundo_label.place(x=0, y=0, relwidth=1, relheight=1)
 
     frame_esquerda = tk.Frame(frame_principal, bg="#ffffff")
     frame_esquerda.pack(side="left", expand=True, padx=20, pady=20)
 
-    #label_emoji = tk.Label(frame_esquerda, text="☕", font=("Helvetica", 100), bg="#ffffff")
-    #label_emoji.pack()
+    label_emoji = tk.Label(frame_esquerda, text="☕", font=("Helvetica", 100), bg="#ffffff")
+    label_emoji.pack()
 
     frame_direita = tk.Frame(frame_principal, bg="#ffffff")
     frame_direita.pack(side="right", expand=True, padx=20, pady=20)
 
-    titulo = tk.Label(frame_header, text="steam inc - カフェ", font=("Bahnschrift SemiBold", 20, "bold"), bg="#ffffff")
-    titulo.pack(anchor="w")
+    titulo = tk.Label(frame_header, text="STEAM INC", font=("Bahnschrift Light", 25, "bold"), bg="#905700")
+    titulo.pack(side="left") 
 
     #fonts = list(font.families())
     #fonts.sort()
